@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { state, style, trigger } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 import { TarefaService } from 'src/app/service/tarefa.service';
 import { Tarefa } from '../interface/tarefa';
@@ -16,8 +16,10 @@ import { Tarefa } from '../interface/tarefa';
     })),
     state('highlighted', style({
       border: '4px solid #B2B6FF',
-      filter: 'brightness(92%)'
-    }))
+      filter: 'brightness(90%)',
+      transform: 'scale(1.02)'
+    })),
+    transition('default <=> highlighted', [animate(200)])
   ])]
 })
 export class ListaTarefasComponent implements OnInit {
