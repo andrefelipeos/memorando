@@ -13,3 +13,13 @@ export const highlightedStateTrigger = trigger('highlightedState',
     transition('default <=> highlighted', [animate(200)])
   ]
 );
+
+export const shownStateTrigger = trigger('shownState',
+  [
+    transition(':enter', [
+      style({ opacity: 0 }),
+      animate(400, style({ opacity: 1 }))
+    ]),
+    transition(':leave', [animate(400, style({ opacity: 0 }))])
+  ]
+);

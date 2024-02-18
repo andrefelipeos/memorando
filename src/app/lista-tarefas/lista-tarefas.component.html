@@ -5,6 +5,7 @@
     </button>
   </div>
   <form class="formulario ff-prompt"
+    @shownState
     [formGroup]="formulario"
     *ngIf="formAberto">
     <label for="descricao">Descrição da tarefa</label>
