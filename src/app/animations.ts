@@ -18,8 +18,8 @@ export const shownStateTrigger = trigger('shownState',
   [
     transition(':enter', [
       style({ opacity: 0 }),
-      animate(400, style({ opacity: 1 }))
+      animate(200, style({ opacity: 1 }))
     ]),
-    transition(':leave', [animate(400, style({ opacity: 0 }))])
+    transition(':leave', [animate(200, style({ opacity: 0 }))])
   ]
 );
