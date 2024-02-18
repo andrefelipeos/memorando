@@ -23,3 +23,11 @@ export const shownStateTrigger = trigger('shownState',
     transition(':leave', [animate(200, style({ opacity: 0 }))])
   ]
 );
+
+export const lastToUpdateStatusTrigger = trigger('lastUpdatedState',
+  [
+    transition('* => lastUpdated', [
+      animate(200, style({ transform: 'scale(0.6)' }))
+    ])
+  ]
+);
