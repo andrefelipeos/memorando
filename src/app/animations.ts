@@ -31,3 +31,13 @@ export const lastToUpdateStatusTrigger = trigger('lastUpdatedState',
     ])
   ]
 );
+
+export const filterAnimationTrigger = trigger('filterAnimation', [
+  transition(':enter', [
+    style({ opacity: 0, width: 0 }),
+    animate('400ms ease-out', style({ opacity: 1, width: '*' }))
+  ]),
+  transition(':leave', [
+    animate('400ms ease-out', style({ opacity: 0, width: 0 }))
+  ])
+]);
