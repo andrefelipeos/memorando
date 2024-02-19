@@ -1,4 +1,4 @@
-import { animate, group, state, style, transition, trigger } from '@angular/animations';
+import { animate, group, keyframes, query, state, style, transition, trigger } from '@angular/animations';
 
 export const highlightedStateTrigger = trigger('highlightedState',
   [
@@ -58,5 +58,23 @@ export const saveButtonAnimationTrigger = trigger('saveButtonAnimation', [
       animate(200, style({ transform: 'scale(1.1)' })),
     ]),
     animate(100, style({ transform: 'scale(1.0)' }))
+  ])
+]);
+
+export const shakeAnimationTrigger = trigger('shakeAnimation', [
+  transition('* => *', [
+    query('input.ng-invalid:focus, select.ng-invalid:focus', [
+      animate(400, keyframes([
+        style({ border: '2px solid red' }),
+        style({ transform: 'translateX(0px)' }),
+        style({ transform: 'translateX(4px)' }),
+        style({ transform: 'translateX(-4px)' }),
+        style({ transform: 'translateX(4px)' }),
+        style({ transform: 'translateX(-4px)' }),
+        style({ transform: 'translateX(4px)' }),
+        style({ transform: 'translateX(-4px)' }),
+        style({ transform: 'translateX(0px)' })
+      ]))
+    ], { optional: true })
   ])
 ]);
