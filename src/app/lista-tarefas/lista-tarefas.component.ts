@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 
 import { TarefaService } from 'src/app/service/tarefa.service';
 import { Tarefa } from '../interface/tarefa';
-import { filterAnimationTrigger, highlightedStateTrigger, lastToUpdateStatusTrigger, saveButtonAnimationTrigger, shakeAnimationTrigger, shownStateTrigger } from '../animations';
+import { checkStatusTrigger, filterAnimationTrigger, highlightedStateTrigger, saveButtonAnimationTrigger, shakeAnimationTrigger, shownStateTrigger } from '../animations';
 
 @Component({
   selector: 'app-lista-tarefas',
@@ -13,7 +13,7 @@ import { filterAnimationTrigger, highlightedStateTrigger, lastToUpdateStatusTrig
   animations: [
     highlightedStateTrigger,
     shownStateTrigger,
-    lastToUpdateStatusTrigger,
+    checkStatusTrigger,
     filterAnimationTrigger,
     saveButtonAnimationTrigger,
     shakeAnimationTrigger
