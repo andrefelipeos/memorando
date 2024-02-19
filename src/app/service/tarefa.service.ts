@@ -10,7 +10,7 @@ import { Tarefa } from '../interface/tarefa';
 export class TarefaService {
   private readonly API = 'http://localhost:3000/tarefas';
   private tarefasSubject = new BehaviorSubject<Tarefa[]>([]);
-  private tarefas$ = this.tarefasSubject.asObservable();
+  public tarefas$ = this.tarefasSubject.asObservable();
 
   constructor(private http: HttpClient) {}
 
