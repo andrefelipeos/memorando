@@ -24,9 +24,9 @@ export const shownStateTrigger = trigger('shownState',
   ]
 );
 
-export const lastToUpdateStatusTrigger = trigger('lastUpdatedState',
+export const checkStatusTrigger = trigger('checkState',
   [
-    transition('* => lastUpdated', [
+    transition('unchecked <=> checked', [
       animate(200, style({ transform: 'scale(0.6)' }))
     ])
   ]
