@@ -110,15 +110,6 @@ export class ListaTarefasComponent implements OnInit {
     });
   }
 
-  recarregarComponente() {
-    this.router.navigate(['/listaTarefas']);
-  }
-
-  atualizarComponente() {
-    this.recarregarComponente();
-    this.resetarFormulario();
-  }
-
   carregarParaEditar(id: number) {
     this.service.buscarPorId(id!).subscribe((tarefa) => {
       this.formulario = this.fomBuilder.group({
@@ -138,12 +129,6 @@ export class ListaTarefasComponent implements OnInit {
       this.service.atualizarStatusTarefa(tarefa).subscribe(() => {
         this.listarAposCheck();
       });
-    });
-  }
-
-  listarAposCheck() {
-    this.service.listar(this.categoria).subscribe((listaTarefas) => {
-      this.tarefasFiltradas = listaTarefas;
     });
   }
 
