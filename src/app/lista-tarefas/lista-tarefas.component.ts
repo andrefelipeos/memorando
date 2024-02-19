@@ -78,7 +78,7 @@ export class ListaTarefasComponent implements OnInit {
 
   editarTarefa() {
     if (this.formulario.valid) {
-      this.service.editar(this.formulario.value);
+      this.service.editar(this.formulario.value, true);
       this.resetarFormulario();
     }
   }
