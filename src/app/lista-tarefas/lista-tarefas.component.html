@@ -49,6 +49,7 @@
     </app-mensagem>
     <div class="botoes-form">
       <button
+        [@saveButtonAnimation]="formulario.valid ? 'habilitado' : 'desabilitado'"
         (click)="salvarTarefa()"
         class="botao-form"
         [ngClass]="habilitarBotao()"

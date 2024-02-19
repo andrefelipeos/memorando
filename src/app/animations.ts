@@ -1,4 +1,4 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
+import { animate, group, state, style, transition, trigger } from '@angular/animations';
 
 export const highlightedStateTrigger = trigger('highlightedState',
   [
@@ -39,5 +39,24 @@ export const filterAnimationTrigger = trigger('filterAnimation', [
   ]),
   transition(':leave', [
     animate('400ms ease-out', style({ opacity: 0, width: 0 }))
+  ])
+]);
+
+export const saveButtonAnimationTrigger = trigger('saveButtonAnimation', [
+  transition('desabilitado => habilitado', [
+    style({ backgroundColor: '#6C757D' }),
+    group([
+      animate(200, style({ backgroundColor: '#63B77C' })),
+      animate(200, style({ transform: 'scale(1.1)' })),
+    ]),
+    animate(100, style({ transform: 'scale(1.0)' }))
+  ]),
+  transition('habilitado => desabilitado', [
+    style({ backgroundColor: '#63B77C' }),
+    group([
+      animate(200, style({ backgroundColor: '#6C757D' })),
+      animate(200, style({ transform: 'scale(1.1)' })),
+    ]),
+    animate(100, style({ transform: 'scale(1.0)' }))
   ])
 ]);
