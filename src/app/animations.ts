@@ -1,4 +1,6 @@
-import { animate, group, keyframes, query, state, style, transition, trigger } from '@angular/animations';
+import {
+  animate, group, keyframes, query, stagger, state, style, transition, trigger
+} from '@angular/animations';
 
 export const highlightedStateTrigger = trigger('highlightedState',
   [
@@ -75,6 +77,31 @@ export const shakeAnimationTrigger = trigger('shakeAnimation', [
         style({ transform: 'translateX(-4px)' }),
         style({ transform: 'translateX(0px)' })
       ]))
+    ], { optional: true })
+  ])
+]);
+
+export const listLoadAnimationTrigger = trigger('listLoadAnimation', [
+  transition('* => *', [
+    query(':enter', [
+      style({
+        opacity: 0,
+        transform: 'translateX(-80%)'
+      }),
+      stagger(250, [
+        animate('250ms ease-out', keyframes([
+          style({
+            opacity: 1,
+            transform: 'translateX(10%)',
+            offset: 0.4
+          }),
+          style({
+            opacity: 1,
+            transform: 'translateX(0)',
+            offset: 1
+          })
+        ]))
+      ]),
     ], { optional: true })
   ])
 ]);

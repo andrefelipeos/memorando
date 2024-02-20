@@ -81,7 +81,7 @@
       (keyup)="filtrarTarefas()"
     />
   </div>
-  <div *ngIf="tarefasFiltradas.length > 0, else semTarefas">
+  <div *ngIf="tarefasFiltradas.length > 0, else semTarefas" @listLoadAnimation>
     <div
       class="lista-tarefas card-{{ tarefa.categoria }}"
       *ngFor="let tarefa of tarefasFiltradas; let i = index"

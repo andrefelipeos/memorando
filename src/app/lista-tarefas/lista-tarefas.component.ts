@@ -4,7 +4,11 @@ import { Subscription } from 'rxjs';
 
 import { TarefaService } from 'src/app/service/tarefa.service';
 import { Tarefa } from '../interface/tarefa';
-import { checkStatusTrigger, filterAnimationTrigger, highlightedStateTrigger, saveButtonAnimationTrigger, shakeAnimationTrigger, shownStateTrigger } from '../animations';
+import {
+  checkStatusTrigger, filterAnimationTrigger, highlightedStateTrigger,
+  listLoadAnimationTrigger, saveButtonAnimationTrigger, shakeAnimationTrigger,
+  shownStateTrigger
+} from '../animations';
 
 @Component({
   selector: 'app-lista-tarefas',
@@ -16,7 +20,8 @@ import { checkStatusTrigger, filterAnimationTrigger, highlightedStateTrigger, sa
     checkStatusTrigger,
     filterAnimationTrigger,
     saveButtonAnimationTrigger,
-    shakeAnimationTrigger
+    shakeAnimationTrigger,
+    listLoadAnimationTrigger
   ]
 })
 export class ListaTarefasComponent implements OnInit {
