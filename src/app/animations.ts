@@ -64,20 +64,18 @@ export const saveButtonAnimationTrigger = trigger('saveButtonAnimation', [
 ]);
 
 export const shakeAnimationTrigger = trigger('shakeAnimation', [
-  transition('* => *', [
-    query('input.ng-invalid:focus, select.ng-invalid:focus', [
-      animate(400, keyframes([
-        style({ border: '2px solid red' }),
-        style({ transform: 'translateX(0px)' }),
-        style({ transform: 'translateX(4px)' }),
-        style({ transform: 'translateX(-4px)' }),
-        style({ transform: 'translateX(4px)' }),
-        style({ transform: 'translateX(-4px)' }),
-        style({ transform: 'translateX(4px)' }),
-        style({ transform: 'translateX(-4px)' }),
-        style({ transform: 'translateX(0px)' })
-      ]))
-    ], { optional: true })
+  transition('* => false', [
+    animate(400, keyframes([
+      style({ border: '2px solid red' }),
+      style({ transform: 'translateX(0px)' }),
+      style({ transform: 'translateX(4px)' }),
+      style({ transform: 'translateX(-4px)' }),
+      style({ transform: 'translateX(4px)' }),
+      style({ transform: 'translateX(-4px)' }),
+      style({ transform: 'translateX(4px)' }),
+      style({ transform: 'translateX(-4px)' }),
+      style({ transform: 'translateX(0px)' })
+    ]))
   ])
 ]);
 
