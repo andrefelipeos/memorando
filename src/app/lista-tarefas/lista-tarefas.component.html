@@ -6,6 +6,7 @@
   </div>
   <form class="formulario ff-prompt"
     @shownState
+    [@saveButtonAnimation]="formulario.valid ? 'habilitado' : 'desabilitado'"
     [@shakeAnimation]="formulario.value"
     [formGroup]="formulario"
     *ngIf="formAberto">
@@ -50,7 +51,7 @@
     </app-mensagem>
     <div class="botoes-form">
       <button
-        [@saveButtonAnimation]="formulario.valid ? 'habilitado' : 'desabilitado'"
+        id="botao-salvar"
         (click)="salvarTarefa()"
         class="botao-form"
         [ngClass]="habilitarBotao()"
