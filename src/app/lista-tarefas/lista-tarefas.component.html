@@ -6,6 +6,8 @@
   </div>
   <form class="formulario ff-prompt"
     @shownState
+    [@saveButtonAnimation]="formulario.valid ? 'habilitado' : 'desabilitado'"
+    [@shakeAnimation]="formulario.value"
     [formGroup]="formulario"
     *ngIf="formAberto">
     <label for="descricao">Descrição da tarefa</label>
@@ -14,7 +16,6 @@
       formControlName="descricao"
       placeholder="Digite a tarefa"
       [ngClass]="campoValidado('descricao')"
-      [@shakeAnimation]="formulario.get('descricao')?.valid"
     >
     <app-mensagem
       *ngIf="!validado"
@@ -24,7 +25,6 @@
     <select required
       formControlName="prioridade"
       [ngClass]="campoValidado('prioridade')"
-      [@shakeAnimation]="formulario.get('prioridade')?.valid"
     >
       <option value="">Selecione</option>
       <option value="Alta">Alta</option>
@@ -39,7 +39,6 @@
     <select required
       formControlName="categoria"
       [ngClass]="campoValidado('categoria')"
-      [@shakeAnimation]="formulario.get('categoria')?.valid"
     >
       <option value="">Selecione</option>
       <option value="Casa">Casa</option>
@@ -52,7 +51,7 @@
     </app-mensagem>
     <div class="botoes-form">
       <button
-        [@saveButtonAnimation]="formulario.valid ? 'habilitado' : 'desabilitado'"
+        id="botao-salvar"
         (click)="salvarTarefa()"
         class="botao-form"
         [ngClass]="habilitarBotao()"
