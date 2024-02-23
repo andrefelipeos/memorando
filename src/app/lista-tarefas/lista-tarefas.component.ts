@@ -57,12 +57,14 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   filtrarTarefas() {
-    this.campoDeBusca = this.campoDeBusca.trim().toLowerCase();
-    if (this.campoDeBusca) {
-      this.tarefasFiltradas = this.listaTarefas
-        .filter(tarefa => {
-          return tarefa.descricao.toLowerCase().includes(this.campoDeBusca);
-        })
+    const termoDeBusca = this.campoDeBusca.replaceAll("\ ", "").toLowerCase();
+    if (termoDeBusca) {
+      this.tarefasFiltradas = this.listaTarefas.filter(tarefa => {
+        return tarefa.descricao
+          .replaceAll("\ ", "")
+          .toLowerCase()
+          .includes(termoDeBusca);
+      })
     } else {
       this.tarefasFiltradas = this.listaTarefas;
     }
